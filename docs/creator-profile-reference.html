@@ -1,0 +1,885 @@
+<title>Creator Profile — Visual Reference</title>
+<style>
+  :root {
+    --bg: #f7f1e6;
+    --surface: #fffdf9;
+    --surface-quiet: #f0ead9;
+    --line: #e3d9c4;
+    --line-quiet: #d8cdb4;
+
+    --ink: #2a2118;
+    --ink-soft: #6f6350;
+    --ink-faint: #9c8f78;
+
+    --teal: #1b5b4c;
+    --teal-tint: #e6efe9;
+
+    --coral: #ec5f2b;
+    --coral-dark: #a53817;
+
+    --gold: #b8862f;
+    --gold-tint: #faf1de;
+    --gold-line: #dcbb75;
+
+    --font-display: 'Source Serif 4', 'Iowan Old Style', Charter, Georgia, serif;
+    --font-body: 'Inter', system-ui, -apple-system, 'Segoe UI', sans-serif;
+  }
+
+  * { box-sizing: border-box; }
+  html, body { background: var(--bg); }
+  body {
+    margin: 0;
+    color: var(--ink);
+    font-family: var(--font-body);
+    font-size: 16px;
+    line-height: 1.6;
+    -webkit-font-smoothing: antialiased;
+  }
+
+  .page {
+    max-width: 640px;
+    margin: 0 auto;
+    padding: 56px 24px 96px;
+  }
+
+  .spec-tag {
+    font-family: var(--font-body);
+    font-size: 11px;
+    font-weight: 600;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    color: var(--teal);
+    text-align: center;
+    margin-bottom: 40px;
+  }
+
+  /* ---- profile header ---- */
+  .profile-head {
+    text-align: center;
+    margin-bottom: 32px;
+  }
+  .avatar {
+    width: 96px;
+    height: 96px;
+    border-radius: 50%;
+    margin: 0 auto 8px;
+    background:
+      radial-gradient(circle at 32% 28%, #dcae6a 0%, #c47a3f 45%, #8a4e2c 100%);
+    box-shadow: 0 1px 2px rgba(42,33,24,0.06), 0 8px 20px rgba(42,33,24,0.10);
+  }
+
+  .name-row {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 10px;
+    flex-wrap: wrap;
+  }
+  h1.name {
+    font-family: var(--font-display);
+    font-weight: 600;
+    font-size: 31.3px;
+    letter-spacing: -0.01em;
+    margin: 0;
+    text-wrap: balance;
+  }
+
+  /* verified seal — teal (swapped with RD chip) */
+  .verified-seal {
+    display: inline-flex;
+    align-items: center;
+    gap: 5px;
+    background: var(--teal-tint);
+    border: 1px solid #a9c9bd;
+    color: var(--teal);
+    font-family: var(--font-body);
+    font-size: 12px;
+    font-weight: 600;
+    padding: 5px 10px 5px 8px;
+    border-radius: 999px;
+    white-space: nowrap;
+  }
+  .verified-seal svg { width: 13px; height: 13px; flex-shrink: 0; }
+
+  .niche-line {
+    font-size: 15px;
+    color: var(--ink-soft);
+    margin-top: 8px;
+  }
+
+  .credential-row {
+    display: flex;
+    justify-content: center;
+    gap: 8px;
+    margin-top: 14px;
+    flex-wrap: wrap;
+  }
+  .credential-chip {
+    font-family: var(--font-body);
+    font-size: 12px;
+    font-weight: 600;
+    border-radius: 999px;
+    padding: 4px 11px;
+    border: 1px solid transparent;
+  }
+  .credential-chip.chip-teal {
+    color: var(--teal);
+    background: var(--teal-tint);
+    border-color: #c7ddd3;
+  }
+  .credential-chip.chip-plum {
+    color: #8a3f52;
+    background: #f8ecef;
+    border-color: #e3c3cb;
+  }
+  .credential-chip.chip-mauve {
+    color: #8a4f74;
+    background: #f3ecf0;
+    border-color: #dfc9d6;
+  }
+  .credential-chip.chip-blue {
+    color: #2f5f8a;
+    background: #eaf1f8;
+    border-color: #c3d7e8;
+  }
+  .credential-chip.chip-clay {
+    color: #a05a2c;
+    background: #faf0e6;
+    border-color: #e9cfae;
+  }
+  .credential-chip.chip-ink {
+    color: var(--ink-soft);
+    background: transparent;
+    border-color: var(--line);
+  }
+  /* swap variation: RD chip takes the badge's slate */
+  .credential-chip.chip-slate {
+    color: #435049;
+    background: #eef1f0;
+    border-color: #c7d0cc;
+  }
+  /* swap variation: badge takes the RD chip's teal */
+  .verified-seal.swap-teal {
+    background: var(--teal-tint);
+    border: 1px solid #a9c9bd;
+    color: var(--teal);
+  }
+
+  /* ---- bio ---- */
+  .bio {
+    margin: 28px 0 0;
+    font-size: 14.7px;
+    line-height: 1.65;
+    color: var(--ink);
+    text-align: center;
+  }
+
+  .avatar-caption {
+    font-family: var(--font-body);
+    font-size: 11px;
+    color: var(--ink-faint);
+    margin-top: 0;
+    margin-bottom: 20px;
+  }
+
+  /* ---- scope of practice — plain sentence, sits right before tiers ---- */
+  .scope-note {
+    margin: 22px 0 0;
+    padding: 14px 18px;
+    background: var(--teal-tint);
+    border-radius: 10px;
+    font-size: 12.2px;
+    color: var(--teal);
+    text-align: center;
+    line-height: 1.55;
+  }
+  .scope-note b { font-weight: 600; }
+  /* variant 1: softer, warmer teal — blends into the cream page instead of sitting on top of it */
+  .scope-note.variant-soft {
+    background: #eef1e4;
+    color: #4a6156;
+  }
+  /* variant 2: deeper, more saturated teal — more contrast/weight, reads as more official */
+  .scope-note.variant-deep {
+    background: #dbe9e2;
+    color: #16463a;
+  }
+  /* variant 3: blue-grey — matches the blue-grey used in tier pairing variant 2 */
+  .scope-note.variant-bluegray {
+    background: #eaeef4;
+    color: #33455e;
+  }
+
+  /* ---- tiers — Patreon-style, directly under bio ---- */
+  .tiers-label {
+    font-family: var(--font-body);
+    font-size: 12px;
+    letter-spacing: 0.06em;
+    text-transform: uppercase;
+    color: var(--ink-faint);
+    margin: 40px 0 12px;
+    text-align: left;
+  }
+  .tiers {
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+  }
+
+  .tier-card {
+    border-radius: 16px;
+    padding: 20px 22px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 16px;
+  }
+
+  /* free tier: quiet relative to paid, but a real color of its own — mauve, D */
+  .tier-free {
+    background: #f3ecf0;
+    border: 1px solid #dfc9d6;
+  }
+  .tier-free .tier-tag {
+    display: inline-block;
+    font-size: 11px;
+    font-weight: 600;
+    letter-spacing: 0.03em;
+    color: #8a4f74;
+    background: #ffffff;
+    border: 1px solid #dfc9d6;
+    border-radius: 6px;
+    padding: 2px 8px;
+    margin-bottom: 6px;
+  }
+  .tier-free .tier-name {
+    font-family: var(--font-display);
+    font-size: 17px;
+    font-weight: 600;
+    color: #4e3646;
+    margin: 0 0 2px;
+  }
+  .tier-free .tier-desc {
+    font-size: 13px;
+    color: #7a6270;
+    margin: 0;
+  }
+  .btn-ghost {
+    font-family: var(--font-body);
+    font-size: 13.5px;
+    font-weight: 600;
+    color: #8a4f74;
+    background: #ffffff;
+    border: 1px solid #d9bccf;
+    border-radius: 999px;
+    padding: 9px 18px;
+    white-space: nowrap;
+    cursor: pointer;
+  }
+
+  /* paid tier: the natural next step */
+  .tier-paid {
+    background: var(--surface);
+    border: 1px solid var(--line);
+    box-shadow: 0 1px 2px rgba(42,33,24,0.04), 0 6px 18px rgba(42,33,24,0.06);
+  }
+  /* variant 1: warm ivory — same warm-neutral family as the mauve card, not stark white */
+  .tier-paid.variant-ivory {
+    background: #faf4ec;
+    border: 1px solid #ecdfc9;
+  }
+  /* variant 2: light teal tint — mirrors the mauve card's approach (each tier tinted by its own accent) */
+  .tier-paid.variant-tealtint {
+    background: #e9f2ee;
+    border: 1px solid #cfe2d9;
+  }
+  /* variant 3: paid card takes mauve, free card takes blue-gray */
+  .tier-paid.variant-mauve {
+    background: #f3ecf0;
+    border: 1px solid #dfc9d6;
+  }
+  .tier-paid.variant-mauve .tier-tag { color: #8a4f74; background: #fff; border: 1px solid #dfc9d6; }
+  .tier-paid.variant-mauve .btn-cta { background: #8a4f74; box-shadow: 0 4px 12px rgba(138,79,116,0.25); }
+
+  .tier-free.variant-bluegray {
+    background: #eaeef4;
+    border: 1px solid #c9d3e2;
+  }
+  .tier-free.variant-bluegray .tier-tag { color: #3f5f8a; background: #fff; border: 1px solid #c9d3e2; }
+  .tier-free.variant-bluegray .tier-name { color: #33455e; }
+  .tier-free.variant-bluegray .tier-desc { color: #5f7086; }
+  .tier-free.variant-bluegray .btn-ghost { color: #3f5f8a; background: #fff; border: 1px solid #b9c8db; }
+  .tier-paid .tier-tag {
+    display: inline-block;
+    font-size: 11px;
+    font-weight: 600;
+    letter-spacing: 0.03em;
+    color: var(--teal);
+    background: var(--teal-tint);
+    border-radius: 6px;
+    padding: 2px 8px;
+    margin-bottom: 6px;
+  }
+  .tier-paid .tier-name {
+    font-family: var(--font-display);
+    font-size: 19px;
+    font-weight: 600;
+    color: var(--ink);
+    margin: 0 0 2px;
+  }
+  .tier-paid .tier-desc {
+    font-size: 13.5px;
+    color: var(--ink-soft);
+    margin: 0;
+  }
+  .tier-paid .price {
+    font-family: var(--font-display);
+    font-size: 13.5px;
+    color: var(--ink-faint);
+    margin-top: 4px;
+  }
+  .tier-paid .price b {
+    font-family: var(--font-body);
+    color: var(--ink);
+    font-size: 15px;
+  }
+  .btn-cta {
+    font-family: var(--font-body);
+    font-size: 14px;
+    font-weight: 700;
+    color: #f4faf7;
+    background: var(--teal);
+    border: none;
+    border-radius: 999px;
+    padding: 11px 22px;
+    white-space: nowrap;
+    cursor: pointer;
+    box-shadow: 0 4px 12px rgba(27,91,76,0.25);
+  }
+
+  /* ---- check-in preview: relationship, not content library ---- */
+  .checkin-label {
+    font-family: var(--font-body);
+    font-size: 12px;
+    letter-spacing: 0.06em;
+    text-transform: uppercase;
+    color: var(--ink-faint);
+    margin: 44px 0 12px;
+  }
+  .checkin-card {
+    background: var(--surface);
+    border: 1px solid var(--line);
+    border-radius: 16px;
+    padding: 18px 20px;
+    display: flex;
+    gap: 14px;
+  }
+  .checkin-avatar {
+    width: 38px;
+    height: 38px;
+    border-radius: 50%;
+    flex-shrink: 0;
+    background:
+      radial-gradient(circle at 32% 28%, #dcae6a 0%, #c47a3f 45%, #8a4e2c 100%);
+  }
+  .checkin-body { min-width: 0; }
+  .checkin-meta {
+    display: flex;
+    align-items: baseline;
+    gap: 8px;
+    margin-bottom: 4px;
+  }
+  .checkin-name {
+    font-weight: 600;
+    font-size: 14px;
+  }
+  .checkin-time {
+    font-size: 12px;
+    color: var(--ink-faint);
+  }
+  .checkin-text {
+    font-size: 14.5px;
+    color: var(--ink);
+    line-height: 1.55;
+    margin: 0;
+  }
+
+  /* ---- options gallery ---- */
+  .options-section {
+    margin-top: 56px;
+    padding-top: 40px;
+    border-top: 1px dashed var(--line);
+  }
+  .options-title {
+    font-family: var(--font-display);
+    font-size: 20px;
+    font-weight: 600;
+    margin: 0 0 4px;
+  }
+  .options-sub {
+    font-size: 13.5px;
+    color: var(--ink-soft);
+    margin: 0 0 20px;
+  }
+  .option-row {
+    display: flex;
+    gap: 16px;
+    flex-wrap: wrap;
+    margin-bottom: 36px;
+  }
+  .option-block {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 10px;
+    background: var(--surface);
+    border: 1px solid var(--line);
+    border-radius: 14px;
+    padding: 22px 26px;
+    flex: 1;
+    min-width: 180px;
+  }
+  .option-block.on-bg {
+    background: var(--bg);
+    border: 1px dashed var(--line-quiet);
+  }
+  .pairing-block {
+    flex: 1;
+    min-width: 260px;
+    background: var(--bg);
+    border: 1px dashed var(--line-quiet);
+    border-radius: 14px;
+    padding: 18px;
+  }
+  .pairing-block .tiers { margin-bottom: 12px; }
+  .pairing-block .tier-card { padding: 14px 16px; border-radius: 12px; }
+  .pairing-block .tier-paid .tier-name { font-size: 16px; }
+  .pairing-block .tier-free .tier-name { font-size: 15px; }
+  .option-name {
+    font-size: 12px;
+    font-weight: 600;
+    color: var(--ink-soft);
+  }
+  .option-hex {
+    font-family: ui-monospace, monospace;
+    font-size: 11px;
+    color: var(--ink-faint);
+  }
+  .btn-cta-teal {
+    font-family: var(--font-body);
+    font-size: 14px;
+    font-weight: 700;
+    color: #f4faf7;
+    background: var(--teal);
+    border: none;
+    border-radius: 999px;
+    padding: 11px 22px;
+    cursor: pointer;
+    box-shadow: 0 4px 12px rgba(27,91,76,0.25);
+  }
+  .btn-cta-plum {
+    font-family: var(--font-body);
+    font-size: 14px;
+    font-weight: 700;
+    color: #fdf5f7;
+    background: #8a3f52;
+    border: none;
+    border-radius: 999px;
+    padding: 11px 22px;
+    cursor: pointer;
+    box-shadow: 0 4px 12px rgba(138,63,82,0.25);
+  }
+
+  .badge-slate {
+    display: inline-flex;
+    align-items: center;
+    gap: 5px;
+    background: #eef1f0;
+    border: 1px solid #c7d0cc;
+    color: #435049;
+    font-family: var(--font-body);
+    font-size: 12px;
+    font-weight: 600;
+    padding: 5px 10px 5px 8px;
+    border-radius: 999px;
+  }
+  .badge-slate svg { width: 13px; height: 13px; }
+
+  /* community tier — background variations (preview only) */
+  .tier-preview {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+    border-radius: 16px;
+    padding: 16px 18px;
+    flex: 1;
+    min-width: 170px;
+  }
+  .tier-preview .tier-tag {
+    display: inline-block;
+    width: fit-content;
+    font-size: 11px;
+    font-weight: 600;
+    letter-spacing: 0.03em;
+    border-radius: 6px;
+    padding: 2px 8px;
+  }
+  .tier-preview .tier-name {
+    font-family: var(--font-display);
+    font-size: 15px;
+    font-weight: 600;
+    margin: 0;
+  }
+  .tier-preview .option-name,
+  .tier-preview .option-hex { margin-top: 2px; }
+
+  .tier-preview-a { background: #eef4f0; border: 1px solid #d3e3da; }
+  .tier-preview-a .tier-tag { color: #3f7d68; background: #fff; border: 1px solid #cfe0d6; }
+  .tier-preview-a .tier-name { color: #33473f; }
+
+  .tier-preview-b { background: #f2ede0; border: 1px solid #ddd2b8; }
+  .tier-preview-b .tier-tag { color: #7a6a3f; background: #fff; border: 1px solid #ddd2b8; }
+  .tier-preview-b .tier-name { color: #4a4230; }
+
+  .tier-preview-c { background: #eaeef4; border: 1px solid #c9d3e2; }
+  .tier-preview-c .tier-tag { color: #3f5f8a; background: #fff; border: 1px solid #c9d3e2; }
+  .tier-preview-c .tier-name { color: #33455e; }
+
+  .tier-preview-d { background: #f3ecf0; border: 1px solid #dfc9d6; }
+  .tier-preview-d .tier-tag { color: #8a4f74; background: #fff; border: 1px solid #dfc9d6; }
+  .tier-preview-d .tier-name { color: #4e3646; }
+
+  .bg-variant {
+    background: #eef2ea;
+    border-radius: 20px;
+    padding: 40px 28px;
+    text-align: center;
+    flex: 1;
+    min-width: 220px;
+  }
+  .bg-variant.bg-variant-warm {
+    background: #fdeeda;
+  }
+  .bg-variant.bg-variant-peach {
+    background: #f9e1d2;
+  }
+  .bg-variant.bg-variant-sky {
+    background: #e8eef5;
+  }
+  .bg-variant .avatar {
+    width: 72px;
+    height: 72px;
+    margin: 0 auto 8px;
+  }
+  .bg-variant h2 {
+    font-family: var(--font-display);
+    font-size: 24px;
+    font-weight: 600;
+    margin: 12px 0 4px;
+  }
+  .bg-variant .niche-line { font-size: 14px; }
+  .bg-variant .scope-note { background: #ffffff; }
+
+  footer.colophon {
+    margin-top: 64px;
+    padding-top: 20px;
+    border-top: 1px solid var(--line);
+    font-size: 11px;
+    color: var(--ink-faint);
+    text-align: center;
+  }
+  footer.colophon .notes {
+    margin-top: 8px;
+    line-height: 1.7;
+  }
+
+  @media (max-width: 480px) {
+    .tier-card { flex-direction: column; align-items: flex-start; }
+    .btn-ghost, .btn-cta { width: 100%; text-align: center; }
+  }
+</style>
+
+<div class="page">
+
+  <div class="spec-tag">Visual Reference · Creator Profile · Not App Code</div>
+
+  <div class="profile-head">
+    <div class="avatar"></div>
+    <div class="avatar-caption">↑ photo placeholder (creator's real photo goes here)</div>
+    <div class="name-row">
+      <h1 class="name">Maya Reyes</h1>
+      <span class="verified-seal">
+        <svg viewBox="0 0 20 20" fill="none" xmlns="http://www.w3.org/2000/svg">
+          <path d="M10 1.5l2.29 1.32 2.64-.16 1.02 2.45 2.29 1.32-.53 2.62L18.24 11.5l-1.53 2.14.53 2.62-2.29 1.32-1.02 2.45-2.64-.16L10 21.19l-2.29-1.32-2.64.16-1.02-2.45L1.76 16.26l.53-2.62L.76 11.5l1.53-2.14-.53-2.62L4.05 5.42l1.02-2.45 2.64.16L10 1.5z" fill="currentColor" opacity="0.15"/>
+          <path d="M6.5 10.2l2.4 2.4 4.6-5.2" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" fill="none"/>
+        </svg>
+        Verified RD
+      </span>
+    </div>
+    <div class="niche-line">Nutrition Coaching &middot; Sustainable eating, not restriction</div>
+    <div class="credential-row">
+      <span class="credential-chip chip-blue">Registered Dietitian</span>
+      <span class="credential-chip chip-plum">Certified Nutrition Specialist</span>
+    </div>
+  </div>
+
+  <p class="bio">
+    I spent six years in clinical nutrition before I started coaching — now I help people build eating habits that hold up under a real schedule, not a meal plan you'll abandon by March. No detoxes, no macros police. Just steady, personal guidance.
+  </p>
+
+  <div class="scope-note variant-bluegray">
+    <b>What this is (and isn't):</b> Maya provides nutrition coaching and accountability — not medical diagnosis, treatment, or a substitute for your doctor.
+  </div>
+
+  <div class="tiers-label">Tiers</div>
+  <div class="tiers">
+    <div class="tier-card tier-free">
+      <div>
+        <span class="tier-tag">Free</span>
+        <p class="tier-name">Community</p>
+        <p class="tier-desc">Weekly public posts, recipe drops</p>
+      </div>
+      <button class="btn-ghost">Join free</button>
+    </div>
+    <div class="tier-card tier-paid variant-tealtint">
+      <div>
+        <span class="tier-tag">Most popular</span>
+        <p class="tier-name">1:1 Coaching</p>
+        <p class="tier-desc">Personal check-ins, direct messages, custom guidance</p>
+        <div class="price"><b>$19</b> / month</div>
+      </div>
+      <button class="btn-cta">Subscribe</button>
+    </div>
+  </div>
+
+  <div class="checkin-label">From Maya, this week</div>
+  <div class="checkin-card">
+    <div class="checkin-avatar"></div>
+    <div class="checkin-body">
+      <div class="checkin-meta">
+        <span class="checkin-name">Maya</span>
+        <span class="checkin-time">Tuesday, 7:42am</span>
+      </div>
+      <p class="checkin-text">
+        A few of you asked about protein timing after evening workouts — posted a short breakdown in the feed. Also, how'd the meal prep go this week? Tell me what stuck and what didn't, I'll adjust next week's plan around it.
+      </p>
+    </div>
+  </div>
+
+  <div class="options-section">
+    <p class="options-title">Decisions applied to the main card above</p>
+    <p class="options-sub">CTA: deep teal. Verified badge: teal. RD chip: blue (Option B). Tiers: Community stays quiet mauve, Coaching is light teal tint (Variant 1). All live in the profile at the top of this page — kept here for reference.</p>
+    <div class="option-row">
+      <div class="option-block">
+        <button class="btn-cta-teal">Subscribe</button>
+        <span class="option-name">✓ CTA — Deep teal</span>
+        <span class="option-hex">#1b5b4c (matches primary token)</span>
+      </div>
+      <div class="option-block" style="flex-direction:row;gap:12px;align-items:center;">
+        <span class="verified-seal">
+          <svg viewBox="0 0 20 20" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <path d="M10 1.5l2.29 1.32 2.64-.16 1.02 2.45 2.29 1.32-.53 2.62L18.24 11.5l-1.53 2.14.53 2.62-2.29 1.32-1.02 2.45-2.64-.16L10 21.19l-2.29-1.32-2.64.16-1.02-2.45L1.76 16.26l.53-2.62L.76 11.5l1.53-2.14-.53-2.62L4.05 5.42l1.02-2.45 2.64.16L10 1.5z" fill="currentColor" opacity="0.15"/>
+            <path d="M6.5 10.2l2.4 2.4 4.6-5.2" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" fill="none"/>
+          </svg>
+          Verified RD
+        </span>
+        <span class="credential-chip chip-blue">Registered Dietitian</span>
+      </div>
+    </div>
+    <p class="options-sub" style="margin-top:-14px;">✓ Badge — teal &middot; ✓ RD chip — blue (Option B)</p>
+
+    <p class="options-title">Tier card pairing — 2 variants</p>
+    <p class="options-sub">Variant 1 (light teal tint) is now applied to the main Coaching card above; Community stays its base mauve. Variant 2 kept here for comparison.</p>
+    <div class="option-row">
+      <div class="pairing-block">
+        <div class="tiers">
+          <div class="tier-card tier-free">
+            <div>
+              <span class="tier-tag">Free</span>
+              <p class="tier-name">Community</p>
+              <p class="tier-desc">Weekly public posts</p>
+            </div>
+            <button class="btn-ghost">Join free</button>
+          </div>
+          <div class="tier-card tier-paid variant-tealtint">
+            <div>
+              <span class="tier-tag">Most popular</span>
+              <p class="tier-name">1:1 Coaching</p>
+              <p class="tier-desc">Personal check-ins</p>
+            </div>
+            <button class="btn-cta">Subscribe</button>
+          </div>
+        </div>
+        <span class="option-name">✓ Variant 1 — Light teal tint</span>
+        <span class="option-hex">#e9f2ee, mirrors mauve's own-tint approach</span>
+      </div>
+      <div class="pairing-block">
+        <div class="tiers">
+          <div class="tier-card tier-free variant-bluegray">
+            <div>
+              <span class="tier-tag">Free</span>
+              <p class="tier-name">Community</p>
+              <p class="tier-desc">Weekly public posts</p>
+            </div>
+            <button class="btn-ghost">Join free</button>
+          </div>
+          <div class="tier-card tier-paid variant-mauve">
+            <div>
+              <span class="tier-tag">Most popular</span>
+              <p class="tier-name">1:1 Coaching</p>
+              <p class="tier-desc">Personal check-ins</p>
+            </div>
+            <button class="btn-cta">Subscribe</button>
+          </div>
+        </div>
+        <span class="option-name">Variant 2 — Blue-gray & Mauve</span>
+        <span class="option-hex">Community: #eaeef4 &middot; Coaching: #f3ecf0</span>
+      </div>
+    </div>
+
+    <p class="options-title">"What this is" note — background variations</p>
+    <p class="options-sub">Not applied yet — main note above still uses the current teal tint.</p>
+    <div class="option-row">
+      <div class="option-block on-bg">
+        <div class="scope-note variant-soft" style="margin:0;">
+          <b>What this is (and isn't):</b> coaching, not clinical care.
+        </div>
+        <span class="option-name">Variant 1 — Soft sage-teal</span>
+        <span class="option-hex">#eef1e4, blends into the page</span>
+      </div>
+      <div class="option-block on-bg">
+        <div class="scope-note variant-deep" style="margin:0;">
+          <b>What this is (and isn't):</b> coaching, not clinical care.
+        </div>
+        <span class="option-name">Variant 2 — Deeper teal</span>
+        <span class="option-hex">#dbe9e2, more contrast/weight</span>
+      </div>
+      <div class="option-block on-bg">
+        <div class="scope-note variant-bluegray" style="margin:0;">
+          <b>What this is (and isn't):</b> coaching, not clinical care.
+        </div>
+        <span class="option-name">Variant 3 — Blue-gray</span>
+        <span class="option-hex">#eaeef4, matches the tier-pairing blue-gray</span>
+      </div>
+    </div>
+
+    <p class="options-title">"Registered Dietitian" chip — color variations</p>
+    <p class="options-sub">Option B, Blue, is now applied to the main card above.</p>
+    <div class="option-row">
+      <div class="option-block on-bg">
+        <span class="credential-chip chip-teal">Registered Dietitian</span>
+        <span class="option-name">A — Teal</span>
+        <span class="option-hex">matches primary token</span>
+      </div>
+      <div class="option-block on-bg">
+        <span class="credential-chip chip-blue">Registered Dietitian</span>
+        <span class="option-name">✓ B — Blue (current)</span>
+        <span class="option-hex">clinical / trust-coded</span>
+      </div>
+      <div class="option-block on-bg">
+        <span class="credential-chip chip-clay">Registered Dietitian</span>
+        <span class="option-name">C — Clay</span>
+        <span class="option-hex">warm, food-adjacent</span>
+      </div>
+      <div class="option-block on-bg">
+        <span class="credential-chip chip-ink">Registered Dietitian</span>
+        <span class="option-name">D — Ink outline</span>
+        <span class="option-hex">minimal, no fill</span>
+      </div>
+    </div>
+
+    <p class="options-title">"Certified Nutrition Specialist" chip — color variations</p>
+    <p class="options-sub">Not applied yet — main card above still uses pink. Mauve shown here for comparison, matching the Community tier's palette.</p>
+    <div class="option-row">
+      <div class="option-block on-bg">
+        <span class="credential-chip chip-plum">Certified Nutrition Specialist</span>
+        <span class="option-name">Pink (current)</span>
+        <span class="option-hex">#8a3f52</span>
+      </div>
+      <div class="option-block on-bg">
+        <span class="credential-chip chip-mauve">Certified Nutrition Specialist</span>
+        <span class="option-name">Mauve</span>
+        <span class="option-hex">#8a4f74 (matches Community tier)</span>
+      </div>
+    </div>
+
+    <p class="options-title">Community tier — color variations</p>
+    <p class="options-sub">Not applied yet — main card above still uses A, teal. Pick one and I'll swap it in.</p>
+    <div class="option-row">
+      <div class="tier-preview tier-preview-a">
+        <span class="tier-tag">Free</span>
+        <p class="tier-name">Community</p>
+        <span class="option-name">A — Teal (current)</span>
+      </div>
+      <div class="tier-preview tier-preview-b">
+        <span class="tier-tag">Free</span>
+        <p class="tier-name">Community</p>
+        <span class="option-name">B — Sand</span>
+      </div>
+      <div class="tier-preview tier-preview-c">
+        <span class="tier-tag">Free</span>
+        <p class="tier-name">Community</p>
+        <span class="option-name">C — Blue-grey</span>
+      </div>
+      <div class="tier-preview tier-preview-d">
+        <span class="tier-tag">Free</span>
+        <p class="tier-name">Community</p>
+        <span class="option-name">D — Mauve</span>
+      </div>
+    </div>
+
+    <p class="options-title">Background variations</p>
+    <p class="options-sub">Same profile on two alternate backgrounds — for comparison only, main card above stays on warm cream unless you say otherwise.</p>
+    <div class="option-row">
+      <div class="bg-variant">
+        <div class="avatar"></div>
+        <h2>Maya Reyes</h2>
+        <div class="niche-line">Nutrition Coaching</div>
+        <div class="scope-note" style="margin-top:16px;display:inline-block;">
+          <b>What this is (and isn't):</b> coaching, not clinical care.
+        </div>
+        <div class="option-name" style="margin-top:16px;">Sage (cool)</div>
+        <span class="option-hex">#eef2ea</span>
+      </div>
+      <div class="bg-variant bg-variant-warm">
+        <div class="avatar"></div>
+        <h2>Maya Reyes</h2>
+        <div class="niche-line">Nutrition Coaching</div>
+        <div class="scope-note" style="margin-top:16px;display:inline-block;background:#fffaf3;">
+          <b>What this is (and isn't):</b> coaching, not clinical care.
+        </div>
+        <div class="option-name" style="margin-top:16px;">Apricot (warm, refreshing)</div>
+        <span class="option-hex">#fdeeda</span>
+      </div>
+      <div class="bg-variant bg-variant-peach">
+        <div class="avatar"></div>
+        <h2>Maya Reyes</h2>
+        <div class="niche-line">Nutrition Coaching</div>
+        <div class="scope-note" style="margin-top:16px;display:inline-block;background:#fffaf6;">
+          <b>What this is (and isn't):</b> coaching, not clinical care.
+        </div>
+        <div class="option-name" style="margin-top:16px;">Peach (warm, refreshing)</div>
+        <span class="option-hex">#f9e1d2</span>
+      </div>
+      <div class="bg-variant bg-variant-sky">
+        <div class="avatar"></div>
+        <h2>Maya Reyes</h2>
+        <div class="niche-line">Nutrition Coaching</div>
+        <div class="scope-note" style="margin-top:16px;display:inline-block;background:#ffffff;">
+          <b>What this is (and isn't):</b> coaching, not clinical care.
+        </div>
+        <div class="option-name" style="margin-top:16px;">Sky (cool)</div>
+        <span class="option-hex">#e8eef5</span>
+      </div>
+    </div>
+  </div>
+
+  <footer class="colophon">
+    Wellness Marketplace — Creator Profile Reference
+    <div class="notes">
+      Gold used once, on the verified seal only &middot; Source Serif 4 for name/headline, Inter elsewhere<br>
+      Free tier: grey tag + ghost button · Paid tier: teal tag + coral CTA · Scope note sits directly above tiers
+    </div>
+  </footer>
+
+</div>

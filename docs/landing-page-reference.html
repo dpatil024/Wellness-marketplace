@@ -1,0 +1,394 @@
+<title>Landing / Browse — Visual Reference</title>
+<style>
+  :root {
+    --bg: #f7f1e6;
+    --surface: #fffdf9;
+    --line: #e3d9c4;
+    --line-quiet: #d8cdb4;
+
+    --ink: #2a2118;
+    --ink-soft: #6f6350;
+    --ink-faint: #9c8f78;
+
+    --teal: #1b5b4c;
+    --teal-tint: #e6efe9;
+
+    --coral: #ec5f2b;
+
+    --mauve: #8a4f74;
+    --mauve-tint: #f3ecf0;
+    --mauve-line: #dfc9d6;
+
+    --blue: #2f5f8a;
+    --blue-tint: #eaf1f8;
+    --blue-line: #c3d7e8;
+
+    --plum: #8a3f52;
+    --plum-tint: #f8ecef;
+    --plum-line: #e3c3cb;
+
+    --font-display: 'Source Serif 4', 'Iowan Old Style', Charter, Georgia, serif;
+    --font-body: 'Inter', system-ui, -apple-system, 'Segoe UI', sans-serif;
+  }
+
+  * { box-sizing: border-box; }
+  html, body { background: var(--bg); }
+  body {
+    margin: 0;
+    color: var(--ink);
+    font-family: var(--font-body);
+    font-size: 16px;
+    line-height: 1.6;
+    -webkit-font-smoothing: antialiased;
+  }
+
+  .page {
+    max-width: 1040px;
+    margin: 0 auto;
+    padding: 48px 24px 96px;
+  }
+
+  .spec-tag {
+    font-family: var(--font-body);
+    font-size: 11px;
+    font-weight: 600;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    color: var(--teal);
+    text-align: center;
+    margin-bottom: 32px;
+  }
+
+  h1.page-title {
+    font-family: var(--font-display);
+    font-weight: 600;
+    font-size: 28px;
+    text-align: center;
+    margin: 0 0 8px;
+  }
+  p.page-sub {
+    text-align: center;
+    color: var(--ink-soft);
+    font-size: 14.5px;
+    margin: 0 0 28px;
+  }
+
+  /* ---- filter bar ---- */
+  .filter-bar {
+    display: flex;
+    justify-content: center;
+    gap: 10px;
+    flex-wrap: wrap;
+    margin-bottom: 8px;
+  }
+  .filter-pill {
+    font-family: var(--font-body);
+    font-size: 13px;
+    font-weight: 600;
+    color: var(--ink-soft);
+    background: var(--surface);
+    border: 1px solid var(--line);
+    border-radius: 999px;
+    padding: 8px 16px;
+  }
+  .filter-pill.active {
+    color: var(--teal);
+    background: var(--teal-tint);
+    border-color: #a9c9bd;
+  }
+
+  /* ---- section blocks for the two comparisons ---- */
+  .compare-section {
+    margin-top: 56px;
+    padding-top: 40px;
+    border-top: 1px dashed var(--line);
+  }
+  .compare-title {
+    font-family: var(--font-display);
+    font-size: 20px;
+    font-weight: 600;
+    margin: 0 0 4px;
+    text-align: center;
+  }
+  .compare-sub {
+    font-size: 13.5px;
+    color: var(--ink-soft);
+    text-align: center;
+    margin: 0 0 24px;
+  }
+
+  /* ---- creator grid ---- */
+  .grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 18px;
+  }
+  @media (max-width: 720px) {
+    .grid { grid-template-columns: repeat(2, 1fr); }
+  }
+  @media (max-width: 480px) {
+    .grid { grid-template-columns: 1fr; }
+  }
+
+  .creator-card {
+    background: var(--surface);
+    border: 1px solid var(--line);
+    border-radius: 16px;
+    padding: 20px;
+    display: flex;
+    flex-direction: column;
+    box-shadow: 0 1px 2px rgba(42,33,24,0.04), 0 6px 18px rgba(42,33,24,0.06);
+  }
+
+  .card-avatar {
+    width: 56px;
+    height: 56px;
+    border-radius: 50%;
+    margin-bottom: 12px;
+    background: radial-gradient(circle at 32% 28%, #dcae6a 0%, #c47a3f 45%, #8a4e2c 100%);
+  }
+  .card-avatar.alt {
+    background: radial-gradient(circle at 32% 28%, #a8b3c9 0%, #6f7d99 45%, #47526b 100%);
+  }
+  .card-avatar.alt2 {
+    background: radial-gradient(circle at 32% 28%, #c9a8b8 0%, #99708a 45%, #6b4a5c 100%);
+  }
+
+  .card-name-row {
+    display: flex;
+    align-items: center;
+    gap: 6px;
+    margin-bottom: 2px;
+  }
+  .card-name {
+    font-family: var(--font-display);
+    font-weight: 600;
+    font-size: 17px;
+    margin: 0;
+  }
+  .card-badge {
+    display: inline-flex;
+    align-items: center;
+    width: 14px;
+    height: 14px;
+    border-radius: 50%;
+    background: var(--teal-tint);
+    color: var(--teal);
+    flex-shrink: 0;
+  }
+  .card-badge svg { width: 10px; height: 10px; margin: auto; }
+
+  .card-niche {
+    font-size: 13px;
+    color: var(--ink-soft);
+    margin: 0 0 10px;
+  }
+
+  .card-chips {
+    display: flex;
+    gap: 6px;
+    flex-wrap: wrap;
+    margin-bottom: 12px;
+  }
+  .chip {
+    font-size: 10.5px;
+    font-weight: 600;
+    border-radius: 999px;
+    padding: 3px 9px;
+    border: 1px solid transparent;
+  }
+  .chip.blue { color: var(--blue); background: var(--blue-tint); border-color: var(--blue-line); }
+  .chip.plum { color: var(--plum); background: var(--plum-tint); border-color: var(--plum-line); }
+  .chip.mauve { color: var(--mauve); background: var(--mauve-tint); border-color: var(--mauve-line); }
+
+  .card-bio {
+    font-size: 12.5px;
+    color: var(--ink-soft);
+    line-height: 1.5;
+    margin: 0 0 16px;
+    flex-grow: 1;
+  }
+
+  .card-footer {
+    display: flex;
+    gap: 8px;
+  }
+  .btn-view {
+    font-family: var(--font-body);
+    font-size: 12.5px;
+    font-weight: 600;
+    color: var(--ink-soft);
+    background: transparent;
+    border: 1px solid var(--line-quiet);
+    border-radius: 999px;
+    padding: 8px 14px;
+    cursor: pointer;
+    flex: 1;
+  }
+  .btn-subscribe {
+    font-family: var(--font-body);
+    font-size: 12.5px;
+    font-weight: 700;
+    color: #f4faf7;
+    background: var(--teal);
+    border: none;
+    border-radius: 999px;
+    padding: 8px 14px;
+    cursor: pointer;
+    flex: 1;
+  }
+
+  /* single-cta variant: full-width ghost-to-solid look */
+  .card-footer.single .btn-view {
+    background: var(--teal);
+    color: #f4faf7;
+    border: none;
+    flex: 1;
+    text-align: center;
+  }
+
+  footer.colophon {
+    margin-top: 64px;
+    padding-top: 20px;
+    border-top: 1px solid var(--line);
+    font-size: 11px;
+    color: var(--ink-faint);
+    text-align: center;
+  }
+</style>
+
+<div class="page">
+
+  <div class="spec-tag">Visual Reference · Landing / Browse · Not App Code</div>
+  <h1 class="page-title">Find your wellness coach</h1>
+  <p class="page-sub">Browse certified creators by niche and credential</p>
+
+  <div class="filter-bar">
+    <span class="filter-pill active">All niches</span>
+    <span class="filter-pill">Nutrition</span>
+    <span class="filter-pill">Fitness</span>
+    <span class="filter-pill">Mental health</span>
+    <span class="filter-pill">Verified only</span>
+  </div>
+
+  <!-- ============ FINALIZED: single CTA (Cameo-style restraint) ============ -->
+  <div class="compare-section" style="margin-top:40px; border-top:none; padding-top:0;">
+    <p class="compare-title">✓ Finalized — Single CTA</p>
+    <p class="compare-sub">"View profile" only. Matches the Cameo takeaway already in our spec: one action per card, subscribe happens on the profile after reading bio/tiers/scope note. A dual-CTA (Fay-style "View profile" + "Subscribe") variant was compared and rejected.</p>
+    <div class="grid">
+      <div class="creator-card">
+        <div class="card-avatar"></div>
+        <div class="card-name-row">
+          <p class="card-name">Maya Reyes</p>
+          <span class="card-badge"><svg viewBox="0 0 20 20" fill="none"><path d="M6.5 10.2l2.4 2.4 4.6-5.2" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" fill="none"/></svg></span>
+        </div>
+        <p class="card-niche">Nutrition Coaching</p>
+        <div class="card-chips">
+          <span class="chip blue">RD</span>
+          <span class="chip plum">CNS</span>
+        </div>
+        <p class="card-bio">Sustainable eating, not restriction — steady, personal guidance.</p>
+        <div class="card-footer single">
+          <button class="btn-view">View profile</button>
+        </div>
+      </div>
+
+      <div class="creator-card">
+        <div class="card-avatar alt"></div>
+        <div class="card-name-row">
+          <p class="card-name">Jordan Pike</p>
+          <span class="card-badge"><svg viewBox="0 0 20 20" fill="none"><path d="M6.5 10.2l2.4 2.4 4.6-5.2" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" fill="none"/></svg></span>
+        </div>
+        <p class="card-niche">Strength &amp; Conditioning</p>
+        <div class="card-chips">
+          <span class="chip blue">CSCS</span>
+        </div>
+        <p class="card-bio">Programs built around your actual schedule, not an ideal one.</p>
+        <div class="card-footer single">
+          <button class="btn-view">View profile</button>
+        </div>
+      </div>
+
+      <div class="creator-card">
+        <div class="card-avatar alt2"></div>
+        <div class="card-name-row">
+          <p class="card-name">Sam Ortiz</p>
+          <span class="card-badge"><svg viewBox="0 0 20 20" fill="none"><path d="M6.5 10.2l2.4 2.4 4.6-5.2" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" fill="none"/></svg></span>
+        </div>
+        <p class="card-niche">Mental Health Coaching</p>
+        <div class="card-chips">
+          <span class="chip mauve">LPC</span>
+        </div>
+        <p class="card-bio">Weekly check-ins that actually hold you accountable.</p>
+        <div class="card-footer single">
+          <button class="btn-view">View profile</button>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- ============ REJECTED: dual CTA (Fay-style) ============ -->
+  <div class="compare-section">
+    <p class="compare-title">Rejected — Dual CTA, Fay-style</p>
+    <p class="compare-sub">"View profile" (ghost) + "Subscribe" (filled) on the card itself. Considered, then rejected in favor of the single-CTA version above — kept here for reference.</p>
+    <div class="grid">
+      <div class="creator-card">
+        <div class="card-avatar"></div>
+        <div class="card-name-row">
+          <p class="card-name">Maya Reyes</p>
+          <span class="card-badge"><svg viewBox="0 0 20 20" fill="none"><path d="M6.5 10.2l2.4 2.4 4.6-5.2" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" fill="none"/></svg></span>
+        </div>
+        <p class="card-niche">Nutrition Coaching</p>
+        <div class="card-chips">
+          <span class="chip blue">RD</span>
+          <span class="chip plum">CNS</span>
+        </div>
+        <p class="card-bio">Sustainable eating, not restriction — steady, personal guidance.</p>
+        <div class="card-footer">
+          <button class="btn-view">View profile</button>
+          <button class="btn-subscribe">Subscribe</button>
+        </div>
+      </div>
+
+      <div class="creator-card">
+        <div class="card-avatar alt"></div>
+        <div class="card-name-row">
+          <p class="card-name">Jordan Pike</p>
+          <span class="card-badge"><svg viewBox="0 0 20 20" fill="none"><path d="M6.5 10.2l2.4 2.4 4.6-5.2" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" fill="none"/></svg></span>
+        </div>
+        <p class="card-niche">Strength &amp; Conditioning</p>
+        <div class="card-chips">
+          <span class="chip blue">CSCS</span>
+        </div>
+        <p class="card-bio">Programs built around your actual schedule, not an ideal one.</p>
+        <div class="card-footer">
+          <button class="btn-view">View profile</button>
+          <button class="btn-subscribe">Subscribe</button>
+        </div>
+      </div>
+
+      <div class="creator-card">
+        <div class="card-avatar alt2"></div>
+        <div class="card-name-row">
+          <p class="card-name">Sam Ortiz</p>
+          <span class="card-badge"><svg viewBox="0 0 20 20" fill="none"><path d="M6.5 10.2l2.4 2.4 4.6-5.2" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" fill="none"/></svg></span>
+        </div>
+        <p class="card-niche">Mental Health Coaching</p>
+        <div class="card-chips">
+          <span class="chip mauve">LPC</span>
+        </div>
+        <p class="card-bio">Weekly check-ins that actually hold you accountable.</p>
+        <div class="card-footer">
+          <button class="btn-view">View profile</button>
+          <button class="btn-subscribe">Subscribe</button>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <footer class="colophon">
+    Wellness Marketplace — Landing / Browse Reference · Cards reuse the tokens and
+    credential-chip pattern from the creator profile (docs/creator-profile-reference.html)
+  </footer>
+
+</div>

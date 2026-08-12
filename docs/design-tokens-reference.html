@@ -1,0 +1,517 @@
+<title>Wellness Marketplace — Design Tokens</title>
+<style>
+  :root {
+    --page-bg: #faf9f6;
+    --surface: #ffffff;
+    --ink: #1b1a15;
+    --ink-soft: #5c584f;
+    --line: #e5e2d9;
+    --mono-bg: #f1efe8;
+
+    --primary-500: #2c8d76;
+    --primary-700: #1b5b4c;
+    --primary-900: #0f2f28;
+    --accent-500: #ec5f2b;
+    --accent-700: #a53817;
+    --verified-500: #2f7fe0;
+
+    --font-display: 'Fraunces', Georgia, serif;
+    --font-body: 'Source Sans', system-ui, sans-serif;
+    --font-mono: 'IBM Plex Mono', ui-monospace, monospace;
+  }
+
+  @media (prefers-color-scheme: dark) {
+    :root {
+      --page-bg: #16150f;
+      --surface: #1f1e17;
+      --ink: #f2f0e9;
+      --ink-soft: #b5b1a4;
+      --line: #35332a;
+      --mono-bg: #26251c;
+    }
+  }
+  :root[data-theme="dark"] {
+    --page-bg: #16150f;
+    --surface: #1f1e17;
+    --ink: #f2f0e9;
+    --ink-soft: #b5b1a4;
+    --line: #35332a;
+    --mono-bg: #26251c;
+  }
+  :root[data-theme="light"] {
+    --page-bg: #faf9f6;
+    --surface: #ffffff;
+    --ink: #1b1a15;
+    --ink-soft: #5c584f;
+    --line: #e5e2d9;
+    --mono-bg: #f1efe8;
+  }
+
+  @font-face {
+    font-family: 'Fraunces';
+    src: local('Georgia');
+    font-weight: 300 700;
+  }
+
+  * { box-sizing: border-box; }
+  body {
+    background: var(--page-bg);
+    color: var(--ink);
+    font-family: var(--font-body);
+    font-size: 16px;
+    line-height: 1.6;
+    -webkit-font-smoothing: antialiased;
+  }
+
+  .wrap {
+    max-width: 980px;
+    margin: 0 auto;
+    padding: 64px 32px 120px;
+  }
+
+  header.masthead {
+    display: flex;
+    justify-content: space-between;
+    align-items: baseline;
+    gap: 24px;
+    padding-bottom: 28px;
+    border-bottom: 1px solid var(--line);
+    margin-bottom: 56px;
+    flex-wrap: wrap;
+  }
+  .eyebrow {
+    font-family: var(--font-mono);
+    font-size: 12px;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    color: var(--ink-soft);
+  }
+  h1.title {
+    font-family: var(--font-display);
+    font-weight: 500;
+    font-size: 34px;
+    letter-spacing: -0.01em;
+    margin: 6px 0 0;
+    text-wrap: balance;
+  }
+  .masthead-meta {
+    text-align: right;
+    font-family: var(--font-mono);
+    font-size: 12px;
+    color: var(--ink-soft);
+    line-height: 1.8;
+  }
+
+  section { margin-bottom: 64px; }
+  section > h2 {
+    font-family: var(--font-mono);
+    font-size: 12px;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    color: var(--ink-soft);
+    margin: 0 0 6px;
+  }
+  section > .section-title {
+    font-family: var(--font-display);
+    font-size: 22px;
+    font-weight: 500;
+    margin: 0 0 20px;
+  }
+  section > p.lede {
+    max-width: 62ch;
+    color: var(--ink-soft);
+    margin: -8px 0 24px;
+    font-size: 15px;
+  }
+
+  /* ---- color swatches ---- */
+  .ramp-label {
+    font-family: var(--font-mono);
+    font-size: 12px;
+    color: var(--ink-soft);
+    margin: 28px 0 8px;
+    display: flex;
+    justify-content: space-between;
+  }
+  .ramp {
+    display: grid;
+    grid-template-columns: repeat(10, 1fr);
+    border-radius: 10px;
+    overflow: hidden;
+    border: 1px solid var(--line);
+  }
+  .swatch {
+    aspect-ratio: 1 / 0.85;
+    display: flex;
+    align-items: flex-end;
+    padding: 6px;
+    font-family: var(--font-mono);
+    font-size: 10px;
+    position: relative;
+  }
+  .swatch .val {
+    opacity: 0;
+    transition: opacity 0.15s ease;
+  }
+  .swatch:hover .val { opacity: 1; }
+
+  .single-swatches {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+    gap: 14px;
+  }
+  .single-swatch {
+    border: 1px solid var(--line);
+    border-radius: 10px;
+    overflow: hidden;
+    background: var(--surface);
+  }
+  .single-swatch .chip { height: 64px; }
+  .single-swatch .info {
+    padding: 10px 12px;
+    font-family: var(--font-mono);
+    font-size: 11px;
+    color: var(--ink-soft);
+    display: flex;
+    justify-content: space-between;
+  }
+  .single-swatch .info strong {
+    color: var(--ink);
+    font-weight: 600;
+  }
+
+  .rule-row {
+    display: flex;
+    gap: 14px;
+    align-items: flex-start;
+    padding: 16px 0;
+    border-top: 1px solid var(--line);
+  }
+  .rule-row:last-child { border-bottom: 1px solid var(--line); }
+  .rule-dot {
+    width: 10px; height: 10px;
+    border-radius: 50%;
+    margin-top: 6px;
+    flex-shrink: 0;
+  }
+  .rule-row .ref {
+    font-family: var(--font-mono);
+    font-size: 12px;
+    color: var(--ink-soft);
+    width: 130px;
+    flex-shrink: 0;
+    padding-top: 1px;
+  }
+  .rule-row .desc { font-size: 14.5px; }
+  .rule-row .desc b { font-weight: 600; }
+
+  /* ---- type scale ---- */
+  .type-row {
+    display: grid;
+    grid-template-columns: 150px 1fr;
+    gap: 20px;
+    align-items: baseline;
+    padding: 14px 0;
+    border-top: 1px solid var(--line);
+  }
+  .type-row:last-child { border-bottom: 1px solid var(--line); }
+  .type-token {
+    font-family: var(--font-mono);
+    font-size: 12px;
+    color: var(--ink-soft);
+    padding-top: 4px;
+  }
+  .type-token .px { display: block; color: var(--ink); font-size: 13px; margin-top: 2px; }
+  .type-sample { font-family: var(--font-display); overflow-x: auto; white-space: nowrap; }
+
+  .metric-demo {
+    display: flex;
+    align-items: baseline;
+    gap: 28px;
+    background: var(--surface);
+    border: 1px solid var(--line);
+    border-radius: 14px;
+    padding: 28px 32px;
+    margin-top: 8px;
+    flex-wrap: wrap;
+  }
+  .metric-hero {
+    font-family: var(--font-display);
+    font-size: 64px;
+    font-weight: 500;
+    font-variant-numeric: tabular-nums;
+    line-height: 1;
+    color: var(--primary-700);
+  }
+  :root[data-theme="dark"] .metric-hero,
+  @media (prefers-color-scheme: dark) { .metric-hero { color: var(--primary-500); } }
+  .metric-hero-label {
+    font-family: var(--font-mono);
+    font-size: 11px;
+    text-transform: uppercase;
+    letter-spacing: 0.06em;
+    color: var(--ink-soft);
+    margin-top: 6px;
+  }
+  .metric-secondaries { display: flex; gap: 28px; margin-left: auto; }
+  .metric-secondary {
+    font-family: var(--font-display);
+    font-size: 24px;
+    font-weight: 500;
+    font-variant-numeric: tabular-nums;
+    color: var(--ink-soft);
+  }
+
+  /* ---- radius + shadow ---- */
+  .grid-4 {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+    gap: 16px;
+  }
+  .demo-box {
+    background: var(--surface);
+    border: 1px solid var(--line);
+    height: 88px;
+    display: flex;
+    align-items: flex-end;
+    justify-content: space-between;
+    padding: 10px 12px;
+    font-family: var(--font-mono);
+    font-size: 11px;
+    color: var(--ink-soft);
+  }
+
+  footer.colophon {
+    margin-top: 80px;
+    padding-top: 24px;
+    border-top: 1px solid var(--line);
+    font-family: var(--font-mono);
+    font-size: 11px;
+    color: var(--ink-soft);
+    display: flex;
+    justify-content: space-between;
+  }
+
+  @media (max-width: 640px) {
+    .wrap { padding: 40px 20px 80px; }
+    .masthead-meta { text-align: left; }
+    .ramp { grid-template-columns: repeat(5, 1fr); grid-auto-rows: 1fr; }
+    .type-row { grid-template-columns: 1fr; gap: 4px; }
+  }
+</style>
+
+<div class="wrap">
+
+  <header class="masthead">
+    <div>
+      <div class="eyebrow">Wellness Marketplace — Design System</div>
+      <h1 class="title">Token Reference</h1>
+    </div>
+    <div class="masthead-meta">
+      src/index.css<br>
+      docs/component-spec.md<br>
+      v0.1 · tokens only
+    </div>
+  </header>
+
+  <section>
+    <h2>Color / Primary</h2>
+    <div class="section-title">Trust — nav, headers, structural elements</div>
+    <p class="lede">Deep teal-green. Calm and clinical-adjacent without reading cold — the frame the rest of the product sits inside.</p>
+    <div class="ramp">
+      <div class="swatch" style="background:#f0faf7;color:#0f2f28"><span class="val">50</span></div>
+      <div class="swatch" style="background:#d7f0e8;color:#0f2f28"><span class="val">100</span></div>
+      <div class="swatch" style="background:#ade0d1;color:#0f2f28"><span class="val">200</span></div>
+      <div class="swatch" style="background:#7ac9b3;color:#0f2f28"><span class="val">300</span></div>
+      <div class="swatch" style="background:#4aad94;color:#0f2f28"><span class="val">400</span></div>
+      <div class="swatch" style="background:#2c8d76;color:#f0faf7"><span class="val">500</span></div>
+      <div class="swatch" style="background:#1f715e;color:#f0faf7"><span class="val">600</span></div>
+      <div class="swatch" style="background:#1b5b4c;color:#f0faf7"><span class="val">700</span></div>
+      <div class="swatch" style="background:#17493e;color:#f0faf7"><span class="val">800</span></div>
+      <div class="swatch" style="background:#0f2f28;color:#f0faf7"><span class="val">900</span></div>
+    </div>
+    <div class="ramp-label"><span>--color-primary-50</span><span>--color-primary-900</span></div>
+  </section>
+
+  <section>
+    <h2>Color / Accent</h2>
+    <div class="section-title">The one CTA color — subscribe, join, confirm</div>
+    <p class="lede">Warm terracotta. Reserved for exactly one primary action per screen — per the Cameo takeaway, it never appears twice as competing CTAs on one view.</p>
+    <div class="ramp">
+      <div class="swatch" style="background:#fff3ee;color:#521c0d"><span class="val">50</span></div>
+      <div class="swatch" style="background:#ffe1d2;color:#521c0d"><span class="val">100</span></div>
+      <div class="swatch" style="background:#ffbfa0;color:#521c0d"><span class="val">200</span></div>
+      <div class="swatch" style="background:#ff9a6e;color:#521c0d"><span class="val">300</span></div>
+      <div class="swatch" style="background:#f97a49;color:#521c0d"><span class="val">400</span></div>
+      <div class="swatch" style="background:#ec5f2b;color:#fff3ee"><span class="val">500</span></div>
+      <div class="swatch" style="background:#cc481c;color:#fff3ee"><span class="val">600</span></div>
+      <div class="swatch" style="background:#a53817;color:#fff3ee"><span class="val">700</span></div>
+      <div class="swatch" style="background:#7c2b14;color:#fff3ee"><span class="val">800</span></div>
+      <div class="swatch" style="background:#521c0d;color:#fff3ee"><span class="val">900</span></div>
+    </div>
+    <div class="ramp-label"><span>--color-accent-50</span><span>--color-accent-900</span></div>
+  </section>
+
+  <section>
+    <h2>Color / Verified &amp; Semantic</h2>
+    <div class="section-title">Badges and system feedback — not brand actions</div>
+    <p class="lede">Verified blue is deliberately distinct from the accent, so a credential badge is never mistaken for a button. Semantic colors report state; they don't drive action.</p>
+    <div class="single-swatches">
+      <div class="single-swatch">
+        <div class="chip" style="background:#2f7fe0"></div>
+        <div class="info"><strong>verified-500</strong><span>#2f7fe0</span></div>
+      </div>
+      <div class="single-swatch">
+        <div class="chip" style="background:#2f9160"></div>
+        <div class="info"><strong>success-500</strong><span>#2f9160</span></div>
+      </div>
+      <div class="single-swatch">
+        <div class="chip" style="background:#c98a1d"></div>
+        <div class="info"><strong>warning-500</strong><span>#c98a1d</span></div>
+      </div>
+      <div class="single-swatch">
+        <div class="chip" style="background:#c8452e"></div>
+        <div class="info"><strong>danger-500</strong><span>#c8452e</span></div>
+      </div>
+    </div>
+  </section>
+
+  <section>
+    <h2>Color / Neutral</h2>
+    <div class="section-title">Text, surfaces, borders</div>
+    <div class="ramp">
+      <div class="swatch" style="background:#ffffff;color:#17160f;border-right:1px solid #e5e2d9"><span class="val">0</span></div>
+      <div class="swatch" style="background:#f7f7f5;color:#17160f"><span class="val">50</span></div>
+      <div class="swatch" style="background:#eeede9;color:#17160f"><span class="val">100</span></div>
+      <div class="swatch" style="background:#dedcd5;color:#17160f"><span class="val">200</span></div>
+      <div class="swatch" style="background:#c2bfb5;color:#17160f"><span class="val">300</span></div>
+      <div class="swatch" style="background:#9c9891;color:#f7f7f5"><span class="val">400</span></div>
+      <div class="swatch" style="background:#78746c;color:#f7f7f5"><span class="val">500</span></div>
+      <div class="swatch" style="background:#5c584f;color:#f7f7f5"><span class="val">600</span></div>
+      <div class="swatch" style="background:#423f39;color:#f7f7f5"><span class="val">700</span></div>
+      <div class="swatch" style="background:#2b2925;color:#f7f7f5"><span class="val">800</span></div>
+      <div class="swatch" style="background:#17160f;color:#f7f7f5"><span class="val">900</span></div>
+    </div>
+    <div class="ramp-label"><span>--color-neutral-0</span><span>--color-neutral-900</span></div>
+  </section>
+
+  <section>
+    <h2>Typography</h2>
+    <div class="section-title">Type scale</div>
+    <p class="lede">Inter for both display and body roles in the working tokens — set here in the system font stack the token file falls back to. Sizes below render at true scale.</p>
+
+    <div class="type-row">
+      <div class="type-token">--text-xs<span class="px">0.75rem / 12px</span></div>
+      <div class="type-sample" style="font-family:var(--font-body);font-size:12px;">Scope-of-practice note, caption text</div>
+    </div>
+    <div class="type-row">
+      <div class="type-token">--text-sm<span class="px">0.875rem / 14px</span></div>
+      <div class="type-sample" style="font-family:var(--font-body);font-size:14px;">Coaching is not a substitute for medical care</div>
+    </div>
+    <div class="type-row">
+      <div class="type-token">--text-base<span class="px">1rem / 16px</span></div>
+      <div class="type-sample" style="font-family:var(--font-body);font-size:16px;">Body copy, check-in messages</div>
+    </div>
+    <div class="type-row">
+      <div class="type-token">--text-lg<span class="px">1.125rem / 18px</span></div>
+      <div class="type-sample" style="font-family:var(--font-body);font-size:18px;">Tier description</div>
+    </div>
+    <div class="type-row">
+      <div class="type-token">--text-xl<span class="px">1.25rem / 20px</span></div>
+      <div class="type-sample" style="font-weight:500;font-size:20px;">Tier name</div>
+    </div>
+    <div class="type-row">
+      <div class="type-token">--text-2xl<span class="px">1.5rem / 24px</span></div>
+      <div class="type-sample" style="font-weight:500;font-size:24px;">Creator name</div>
+    </div>
+    <div class="type-row">
+      <div class="type-token">--text-3xl<span class="px">1.875rem / 30px</span></div>
+      <div class="type-sample" style="font-weight:500;font-size:30px;">Section heading</div>
+    </div>
+    <div class="type-row">
+      <div class="type-token">--text-4xl<span class="px">2.25rem / 36px</span></div>
+      <div class="type-sample" style="font-weight:500;font-size:36px;">Page heading</div>
+    </div>
+  </section>
+
+  <section>
+    <h2>Typography / Dashboard scale</h2>
+    <div class="section-title">One hero metric, everything else recedes</div>
+    <p class="lede">Whoop/Oura takeaway: <b>--text-metric-hero</b> is used on exactly one number per dashboard view. <b>--text-metric-secondary</b> is for the supporting stats nearby — never at the same size as the hero.</p>
+    <div class="metric-demo">
+      <div>
+        <div class="metric-hero">1,204</div>
+        <div class="metric-hero-label">Active subscribers · metric-hero, 4rem</div>
+      </div>
+      <div class="metric-secondaries">
+        <div>
+          <div class="metric-secondary">$8.4k</div>
+          <div class="metric-hero-label">MRR</div>
+        </div>
+        <div>
+          <div class="metric-secondary">62%</div>
+          <div class="metric-hero-label">Retention</div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section>
+    <h2>Radius</h2>
+    <div class="section-title">Rounded, friendly — never sharp corners on interactive surfaces</div>
+    <div class="grid-4">
+      <div class="demo-box" style="border-radius:6px"><span>sm</span><span>6px</span></div>
+      <div class="demo-box" style="border-radius:10px"><span>md</span><span>10px</span></div>
+      <div class="demo-box" style="border-radius:16px"><span>lg</span><span>16px</span></div>
+      <div class="demo-box" style="border-radius:24px"><span>xl</span><span>24px</span></div>
+      <div class="demo-box" style="border-radius:9999px"><span>full</span><span>pill / avatar</span></div>
+    </div>
+  </section>
+
+  <section>
+    <h2>Shadow</h2>
+    <div class="section-title">Low elevation — flat-plus-soft, not skeuomorphic</div>
+    <div class="grid-4">
+      <div class="demo-box" style="border-radius:14px;border:none;box-shadow:0 1px 2px rgba(23,22,15,0.04), 0 4px 12px rgba(23,22,15,0.06)">
+        <span>card</span><span>resting</span>
+      </div>
+      <div class="demo-box" style="border-radius:14px;border:none;box-shadow:0 2px 4px rgba(23,22,15,0.06), 0 8px 24px rgba(23,22,15,0.08)">
+        <span>card-hover</span><span>hover / focus</span>
+      </div>
+      <div class="demo-box" style="border-radius:14px;border:none;box-shadow:0 8px 24px rgba(23,22,15,0.12)">
+        <span>popover</span><span>menus, modals</span>
+      </div>
+    </div>
+  </section>
+
+  <section>
+    <h2>Applied rules</h2>
+    <div class="section-title">Where each inspiration takeaway lands in the tokens</div>
+    <div class="rule-row">
+      <div class="rule-dot" style="background:var(--primary-500)"></div>
+      <div class="ref">Patreon</div>
+      <div class="desc">Tier cards live directly under the bio — a layout rule for the creator profile, not a token: bio → tiers, nothing between them.</div>
+    </div>
+    <div class="rule-row">
+      <div class="rule-dot" style="background:var(--accent-500)"></div>
+      <div class="ref">Cameo</div>
+      <div class="desc"><b>--color-accent-*</b> is the only color used for a primary CTA. One accent action per screen, no competing buttons.</div>
+    </div>
+    <div class="rule-row">
+      <div class="rule-dot" style="background:var(--verified-500)"></div>
+      <div class="ref">Noom / Ro</div>
+      <div class="desc">Scope-of-practice copy sits in <b>--text-sm</b> / <b>neutral-600</b>, placed immediately above the subscribe button — never a footer or modal.</div>
+    </div>
+    <div class="rule-row">
+      <div class="rule-dot" style="background:var(--primary-700)"></div>
+      <div class="ref">Whoop / Oura</div>
+      <div class="desc"><b>--text-metric-hero</b> appears once per dashboard view. Supporting numbers use <b>--text-metric-secondary</b> or smaller.</div>
+    </div>
+  </section>
+
+  <footer class="colophon">
+    <span>Wellness Marketplace</span>
+    <span>Tailwind v4 · @theme tokens</span>
+  </footer>
+
+</div>
